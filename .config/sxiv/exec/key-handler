@@ -1,0 +1,32 @@
+#!/bin/bash
+
+while read file
+do
+	fullpath="$(pwd)/$file"
+	case "$1" in
+	"k")	
+		kdeconnect-cli --refresh
+		sleep 2
+		kdeconnect-cli -n 'Phone' --share "$fullpath" &&
+		notify-send -a 'Kde Connect' 'Files sent...' -i 'dialog-information' -t 5000 ||
+		notify-send -a 'Kde Connect' 'Files not sent...' -i 'dialog-error' -t 5000 ;;
+	"w")
+		bash /home/dilip/.scripts/wally $fullpath ;;
+	"r")
+		convert -rotate 90 "$file" "$file" ;;
+	"R")
+		convert -rotate -90 "$file" "$file" ;;
+	"h")
+		convert -flop "$file" "$file" ;;
+	"v")
+		convert -flip "$file" "$file" ;;
+	"t")
+		trash-put "$fullpath" 
+		notify-send -a 'Sxiv' 'Moved to trash!' -i 'dialog-information' -t 2000
+		;;
+	"d")
+		rm "$file" 
+		notify-send -a 'Sxiv' 'Deleted!' -i 'dialog-information' -t 2000
+		;;
+	esac
+done

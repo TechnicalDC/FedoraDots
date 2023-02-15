@@ -1,0 +1,69 @@
+#!/bin/sh
+#  __                                  
+# |  |--.-----.-----.--.--.--.--------.
+# |  _  |__ --|  _  |  |  |  |        |
+# |_____|_____|   __|________|__|__|__|
+#             |__|  
+
+# SETTINGS {{{
+. "${HOME}/.cache/wal/colors.sh"
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+
+bspc monitor -d   "" "" "" "" "" "嗢" "" "" "" 
+
+bspc config border_width         2
+bspc config window_gap           10
+# bspc config top_padding				0
+
+bspc config split_ratio          0.51
+bspc config borderless_monocle   false
+bspc config gapless_monocle      false
+bspc config normal_border_color "$color6"
+bspc config focused_border_color "$color4"
+# bspc config focused_border_color "$color4"
+bspc config presel_feedback_color "$color4"
+bspc config focus_follows_pointer true
+
+nohup $HOME/.config/bspwm/bspborders &
+
+# }}}
+
+# RULES {{{
+
+bspc rule -a Zathura state=tiled
+bspc rule -a mpv state=fullscreen
+bspc rule -a Pavucontrol state=pseudo_tiled
+bspc rule -a SimpleScreenRecorder state=pseudo_tiled
+bspc rule -a Blueman-manager state=floating
+bspc rule -a *:filechooser state=floating
+bspc rule -a *:imagepicker state=floating
+
+# workspaces
+# bspc rule -a qutebrowser desktop="" follow=on
+# bspc rule -a brave-browser desktop="" follow=on
+
+# }}}
+
+# AUTOSTART {{{
+
+# nitrogen --restore &
+urxvtd -q -o -f &
+./.fehbg &
+wal -R
+./.config/polybar/launch.sh bspwm-bar &
+# conky -c ~/.config/conky/conky-day &
+mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
+nm-applet &
+blueman-applet &
+dunst -sep_color "$background" -frame_color "$color4" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
+kdeconnect-indicator &
+picom & 
+# telegram-desktop -startintray &
+# /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+/usr/libexec//polkit-gnome-authentication-agent-1 &
+
+# }}}
+
+# vim: fdm=marker

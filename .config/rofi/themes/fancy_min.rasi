@@ -1,0 +1,115 @@
+/************************************************
+ * Fancy theme for rofi
+ * User: technicaldc
+ * Copyright: 2021 technicaldc
+ ***********************************************/
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+* {
+    active-background			: @background;
+    selected-active-background: @selected-normal-background;
+
+}
+
+#window {
+	transparency: "real";
+	location    : 2;
+	/* anchor      : center; */
+	x-offset    : 0px;
+	y-offset    : 8%;
+	border      : 0;
+	width			: 35%;
+	padding     : 0px;
+	border-color: @selected-urgent-background;
+}
+
+#message {
+	border      : 0px 0px 0px 2px;
+	margin		: 8px 20px;
+	border-color: @selected-normal-background;
+	padding     : 10px;
+}
+
+#listview {
+	fixed-height: 0;
+	columns     : 2;
+	spacing     : 8px ;
+	scrollbar   : false;
+	padding     : 20px;
+}
+
+element, element-text, element-icon {
+	cursor: pointer;
+}
+
+element {
+	padding       : 10px 13px;
+	spacing       : 15px;
+	orientation   : horizontal;
+	border-radius : 3px;
+}
+
+element selected {
+  background-color: var(selected-active-background);
+}
+
+element-icon selected {
+  background-color: var(selected-active-background);
+}
+
+element-text {
+  color:			var(foreground);
+}
+
+element-text selected {
+  color:			var(background);
+  background-color: var(selected-active-background);
+}
+
+#mode-switcher{
+	padding: 3px;
+   spacing:    0;
+	border-radius: 5;
+	border: 1;
+	border-color: @active-background;
+}
+#button {
+    spacing:    0;
+	border-radius: 5;
+    padding: 5px;
+    text-color: @normal-foreground;
+}
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#entry {
+	spacing         : 0;
+	border			 : 1px;
+	border-radius   : 3px;
+	border-color    : @foreground;
+	padding         : 10px 13px;
+	placeholder     : "Search";
+	text-color      : @normal-foreground;
+}
+#prompt {
+	spacing         : 0;
+	border			 : 1px;
+	border-radius   : 3px;
+	border-color    : @foreground;
+	text-align		 : center;
+	padding         : 10px 10px 0px 5px;
+	text-color      : @normal-foreground;
+}
+#inputbar {
+	children        : [ prompt,entry ];
+	padding         : 30px;
+	spacing         : 8px;
+	border-radius   : 0;
+	border          : 0;
+	background-color: @background;
+	background-image: url("~/.cache/mantablockscreen/resize-blur.png");
+	border-color    : @selected-urgent-background;
+	text-color      : @normal-foreground;
+}

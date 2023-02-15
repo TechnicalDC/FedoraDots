@@ -1,0 +1,513 @@
+;  ______         __         __               
+; |   __ \.-----.|  |.--.--.|  |--.---.-.----.
+; |    __/|  _  ||  ||  |  ||  _  |  _  |   _|
+; |___|   |_____||__||___  ||_____|___._|__|  
+;                    |_____|              
+
+; COLORS {{{
+[colors]
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
+alert = ${xrdb:color1}
+red = ${xrdb:color1}
+green = ${xrdb:color2}
+yellow = ${xrdb:color3}
+purple = ${xrdb:color4}
+magenta = ${xrdb:color5}
+cyan = ${xrdb:color6}
+
+; }}}
+
+; BASE BAR {{{
+
+[bar/base]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 98.5%
+height = 25
+offset-x = 10
+offset-y = 10
+fixed-center = true
+enable-ipc = true
+
+line-size = 0
+line-color = #fff
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 2
+border-color = ${colors.background}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Open Sans Condensed:style=Bold:size=10
+font-1 = Font Awesome 5 Free Regular:style=Regular:size=9;1
+font-2 = Font Awesome 5 Free Solid:style=Solid:size=9;1
+font-3 = Font Awesome 5 Free Brand:style=Regular:size=9;1
+font-4 ="Sauce Code Pro Nerd Font:size=10;2"
+font-5 = "Sauce Code Pro Nerd Font:size=13;3"
+
+modules-right = pulseaudio date 
+
+tray-position = right
+tray-padding = 4
+tray-background = ${colors.background}
+tray-maxsize = 16
+
+cursor-click = pointer
+;cursor-scroll = ns-resize
+
+wm-restack = bspwm
+
+; }}}
+
+; I3-BAR {{{
+[bar/i3-bar]
+inherit = bar/base
+modules-left = i3 mpd
+wm-restack = i3
+override-redirect = true
+; }}}
+
+; BSPWM-BAR {{{
+[bar/bspwm-bar]
+inherit = bar/base
+modules-left = bspwm 
+modules-center = date
+modules-right = pulseaudio cpu memory
+wm-restack = bspwm
+
+; }}}
+
+; DUNST-TOOGLE {{{
+
+[module/dunst-toggle]
+type = custom/ipc
+hook-0 = echo "%{T3}%{T-}"
+hook-1 = echo "%{T3}%{T-}"
+initial = 1
+click-left = /home/dilip/.config/polybar/scripts/poly-dunst.sh &
+format-padding = 2
+format-background = ${colors.backlight}
+
+; }}}
+
+; UPTIME {{{
+[module/uptime]
+type = custom/script
+exec = uptime -p | cut -d' ' -f2,3  
+format-prefix = 
+format-prefix-foreground = ${colors.purple}
+format-padding = 2
+format-prefix-padding = 2
+format-background = ${colors.background}
+; exec-if = pgrep -x myservice
+tail = true
+interval = 60
+; }}}
+
+; PICOM-TOOGLE {{{
+
+[module/picom-toggle]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = echo ""
+initial = 1
+click-left = /home/dilip/.config/polybar/scripts/poly-picom.sh &
+format-padding = 2
+format-background = ${colors.background}
+
+; }}}
+
+; XWINDOW {{{
+
+[module/xwindow]
+type = internal/xwindow
+format-prefix = 
+format-prefix-background = ${colors.background-alt}
+format-prefix-padding = 2
+label =  %title:0:30:...%
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+label-padding = 1
+;label-margin = 1
+
+; }}}
+
+; BSPWM {{{
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-foreground= ${colors.purple}
+label-focused-background=  ${colors.background}
+label-focused-padding = 2
+
+label-occupied = %name%
+label-occupied-padding = 2
+label-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.green}
+
+label-urgent =  %name%
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.background}
+label-urgent-padding = 2
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-background = ${colors.background}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+; }}}
+
+; I3 {{{
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+; label-focused-underline = ${colors.foreground} 
+label-focused-foreground = ${colors.purple}
+label-focused-background = ${colors.background}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+; label-unfocused-underline = ${colors.background-alt} 
+label-unfocused-padding = ${self.label-focused-padding}
+label-unfocused-foreground = ${colors.green}
+label-unfocused-background = ${colors.background}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+; label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.background}
+label-urgent-foreground = ${colors.alert}
+; label-urgent-underline = ${colors.alert}
+label-urgent-padding = ${self.label-focused-padding}
+
+; }}}
+
+; BACKLIGHT {{{
+
+[module/backlight]
+type = internal/xbacklight
+
+output = VGA1
+
+format = <label>
+format-prefix =  
+format-prefix-foreground = ${colors.purple}
+label = %percentage%%
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+
+; }}}
+
+; FILESYSTEM {{{
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+interval = 10
+fixed-values = true
+spacing = 4
+
+format-mounted = <label-mounted>
+format-mounted-padding = 2
+format-mounted-background = ${colors.background}
+format-mounted-prefix = %{T3}%{T-}
+format-mounted-prefix-foreground = ${colors.purple}
+label-mounted = "  %mountpoint% : %percentage_used%%"
+
+; }}}
+
+; MPD {{{
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+password =
+
+format-online = <icon-prev> <toggle> <icon-next> <icon-repeat> <label-song> <label-time>
+format-online-background = ${colors.background}
+format-online-padding = 2
+format-offline = <label-offline>
+format-offline-background = ${colors.background}
+format-offline-prefix = 
+format-offline-prefix-foreground = ${colors.alert}
+format-offline-padding = 2
+
+label-offline = " Mpd is offline"
+label-song = %title%
+label-song-margin = 3
+label-time-margin = 2
+
+;=== Icons ===
+;        
+
+icon-seekb = 
+icon-seekb-foreground = ${colors.purple}
+icon-seekb-margin = 1
+icon-prev = 
+icon-prev-foreground = ${colors.purple}
+icon-prev-margin = 1
+icon-play = 
+icon-play-foreground = ${colors.purple}
+icon-play-margin = 1
+icon-pause-margin = 1
+icon-pause = 
+icon-pause-foreground = ${colors.purple}
+icon-seekf = 
+icon-seekf-foreground = ${colors.purple}
+icon-seekf-margin = 1
+icon-next = 
+icon-next-foreground = ${colors.purple}
+icon-next-margin = 1
+icon-repeat = 
+icon-repeat-margin = 1
+icon-stop = 
+icon-stop-foreground = ${colors.purple}
+icon-stop-margin = 1
+
+toggle-on-foreground = ${colors.purple}
+toggle-off-foreground = ${colors.foreground}
+
+click-right = ncmpcpp &
+
+; }}}
+
+; CPU {{{
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <ramp-load> <label>
+format-padding = 2
+format-background = ${colors.background}
+
+ramp-load-0 = 
+ramp-load-0-foreground = ${colors.purple}
+ramp-load-1 = 
+ramp-load-1-foreground = ${colors.purple}
+ramp-load-2 = 
+ramp-load-2-foreground = ${colors.purple}
+ramp-load-3 = 
+ramp-load-3-foreground = ${colors.purple}
+ramp-load-4 = 
+ramp-load-4-foreground = ${colors.purple}
+ramp-load-5 = 
+ramp-load-5-foreground = ${colors.purple}
+ramp-load-6 = 
+ramp-load-6-foreground = ${colors.purple}
+ramp-load-7 = 
+ramp-load-7-foreground = ${colors.purple}
+ramp-load-8 = 
+ramp-load-8-foreground = ${colors.purple}
+ramp-load-9 = 
+ramp-load-9-foreground = ${colors.alert}
+
+label = %percentage:2%%
+label-foreground = ${colors.foreground}
+label-padding = 1
+
+click-right = htop &
+
+; }}}
+
+; MEMORY {{{
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = <ramp-used> <label>
+format-padding = 2
+format-background = ${colors.background}
+
+ramp-used-0 = " "
+ramp-used-0-foreground = ${colors.purple}
+ramp-used-1 = " "
+ramp-used-1-foreground = ${colors.purple}
+ramp-used-2 = " "
+ramp-used-2-foreground = ${colors.purple}
+ramp-used-3 = " "
+ramp-used-3-foreground = ${colors.purple}
+ramp-used-4 = " "
+ramp-used-4-foreground = ${colors.purple}
+ramp-used-5 = " "
+ramp-used-5-foreground = ${colors.purple}
+ramp-used-6 = " "
+ramp-used-6-foreground = ${colors.purple}
+ramp-used-7 = " "
+ramp-used-7-foreground = ${colors.purple}
+ramp-used-8 = " "
+ramp-used-8-foreground = ${colors.purple}
+ramp-used-9 = " "
+ramp-used-9-foreground = ${colors.alert}
+
+label = %percentage_used%%
+label-foreground = ${colors.foreground}
+label-padding = 1
+;label-margin = 1
+
+; }}}
+
+; WLAN {{{
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 1.0
+
+format-connected = <label-connected>
+;format-connected-underline = #55ff55
+label-connected =  %essid%
+label-connected-foreground = ${colors.foreground}
+label-connected-padding = 1
+;label-connected-margin = 1
+
+;format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = #ff5555
+;label-disconnected = WIFI: disconnected IP: N/A
+;label-disconnected-padding = 2
+;label-disconnected-background = #3971ed
+;label-disconned
+;label-disconnected-foreground = #ff0000
+
+; }}}
+
+; DATE {{{
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%d %b"
+
+time = %a %H:%M
+
+format-prefix = 
+format-prefix-foreground = ${colors.purple}
+format-prefix-background = ${colors.background}
+format-prefix-padding = 2
+
+label =  %date%, %time%
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+label-padding = 1
+;label-margin = 1
+
+click-right = calcurse &
+; }}}
+
+; PULSEAUDIO {{{
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 2
+format-volume-background = ${colors.background}
+label-volume = %percentage%% 
+label-volume-foreground = ${colors.foreground}
+label-volume-padding = 1
+
+ramp-volume-0 = 
+ramp-volume-0-foreground = ${colors.purple}
+ramp-volume-1 = 
+ramp-volume-1-foreground = ${colors.purple}
+ramp-volume-2 = 
+ramp-volume-2-foreground = ${colors.purple}
+ramp-volume-3 = 
+ramp-volume-3-foreground = ${colors.purple}
+ramp-volume-4 = 
+ramp-volume-4-foreground = ${colors.purple}
+ramp-volume-5 = 
+ramp-volume-5-foreground = ${colors.purple}
+ramp-volume-6 = 
+ramp-volume-6-foreground = ${colors.purple}
+ramp-volume-7 = 
+ramp-volume-7-foreground = ${colors.purple}
+ramp-volume-8 = 
+ramp-volume-8-foreground = ${colors.purple}
+ramp-volume-9 = 
+ramp-volume-9-foreground = ${colors.red}
+
+label-muted =  
+label-muted-foreground = ${colors.red}
+label-muted-background = ${colors.background}
+label-muted-padding = 2
+
+click-right = pavucontrol &
+
+; }}}
+
+; TEMPERATURE {{{
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-padding = 2
+format-background = ${colors.background}
+format-warn = <ramp> <label-warn>
+
+ramp-0 = 
+ramp-0-foreground = ${colors.purple}
+ramp-1 = 
+ramp-1-foreground = ${colors.purple}
+ramp-2 = 
+ramp-2-foreground = ${colors.purple}
+ramp-3 = 
+ramp-3-foreground = ${colors.purple}
+ramp-4 = 
+ramp-4-foreground = ${colors.alert}
+
+label = %temperature-c%
+label-foreground = ${colors.foreground}
+label-padding = 1
+
+; }}}
+
+; OTHERS {{{
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
+
+; }}}

@@ -1,0 +1,86 @@
+/************************************************
+ * ROFI Color theme
+ * User: technicaldc
+ * Copyright: 2021 technicaldc
+ ***********************************************/
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+* {
+    active-background:			@background;
+    selected-active-background: @selected-normal-background;
+
+}
+
+#window {
+	border:           0;
+	border-color:     @background;
+	padding: 0px;
+}
+
+#message {
+    border:       1px 0px 0px ;
+    border-color: @separatorcolor;
+    padding:      2px ;
+}
+
+#listview {
+    fixed-height: 0;
+    spacing:      0px ;
+    scrollbar:    false;
+    padding:      10px;
+}
+
+#element {
+    border:  0;
+	border-radius: 5px;
+    padding: 6px;
+	margin: 5;
+	height: 100px;
+}
+
+#element-icon{
+	size: 100px;
+}
+
+#mode-switcher{
+	padding: 3px;
+    spacing:    0;
+	border-radius: 5;
+	border: 1;
+	border-color: @active-background;
+}
+#button {
+    spacing:    0;
+	border-radius: 5;
+    padding: 5px;
+    text-color: @normal-foreground;
+}
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#entry {
+	spacing:    0;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 5px 8px;
+	text-color: @normal-foreground;
+}
+#prompt {
+	spacing:    0;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 5px 8px;
+	text-color: @normal-foreground;
+}
+#inputbar {
+	children:   [ prompt,entry];
+	padding: 10px;
+	spacing:    0;
+	border: 1;
+	background-color: @selected-urgent-background;
+	border-color: @selected-urgent-background;
+	text-color: @normal-foreground;
+}
+

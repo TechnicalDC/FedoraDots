@@ -1,0 +1,223 @@
+#  __ ______                    
+# |__|__    |.--.--.--.--------.
+# |  |__    ||  |  |  |        |
+# |__|______||________|__|__|__|
+
+
+# MOD KEY {{{
+
+set $mod Mod4
+set $alt Mod1
+
+# }}}
+
+# GAPS {{{
+
+#Needed for i3-gaps
+#hide_edge_borders both
+for_window [class="^.*"] border pixel 2
+gaps inner 10
+gaps outer 0
+gaps top 40
+# gaps outer 40
+
+# }}}
+
+# KEY BINDINGS {{{
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+q kill
+
+# Scratchpads
+for_window [title="scratchpad"] floating enable, move scratchpad
+bindsym $mod+x [instance="scratchpad"] scratchpad show, move position center 
+# exec st -n scratchpad -g 86x24-8-32
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Ctrl+h split h
+
+# split in vertical orientation
+bindsym $mod+Ctrl+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+s floating toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec ./.scripts/rofi-powermenu.sh
+
+# resize window (you can also use the mouse for that)
+
+bindsym $mod+Mod1+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Mod1+j resize grow height 10 px or 10 ppt
+bindsym $mod+Mod1+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Mod1+l resize grow width 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+bindsym $mod+Mod1+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Mod1+Down resize grow height 10 px or 10 ppt
+bindsym $mod+Mod1+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Mod1+Right resize grow width 10 px or 10 ppt
+
+# }}}
+
+# APPLICATION KEY BINDINGS {{{
+
+# Control mpd
+bindsym $mod+F1 exec ./.scripts/rofi-mpc
+
+# change wallpaper and colorscheme
+bindsym $mod+F2 exec ./.scripts/wally
+
+# start rofi
+bindsym $mod+d exec rofi -show drun 
+
+# start rofi run
+bindsym $mod+r exec rofi -show run -no-show-icons
+
+# window list
+bindsym $mod+w exec rofi -show window 
+
+# config menu
+bindsym $mod+e exec ./.scripts/rofi-configmenu.sh
+
+#scrot menu
+bindsym Shift+Print exec ./.scripts/rofi-scrotmenu.sh
+
+#scrot
+bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' && dunstify -a 'Scrot' 'Screenshot saved.' -i '$1' -t 2000
+
+# launch terminal
+bindsym $mod+Return exec st
+
+# launch ranger
+bindsym $mod+Mod1+r exec st -n ranger -e ranger
+
+# launch qutebrowser
+bindsym $mod+Mod1+q exec ./.scripts/rofi-quickmarks.sh
+
+# launch layout manager
+bindsym $mod+z exec ./.scripts/i3-layout-manager
+
+# launch neovim
+bindsym $mod+Mod1+n exec st -n nvim -e nvim
+
+# launch neomutt
+bindsym $mod+Mod1+m exec st -n neomutt -e neomutt
+
+# launch calcurse
+bindsym $mod+Mod1+c exec st -n calcurse -e calcurse
+
+# }}}
+
+# COLOR SETTINGS {{{
+
+# set_from_resource $normal background
+# set_from_resource $foreground foreground
+# set_from_resource $focus color4
+# set_from_resource $focus background
+# set_from_resource $alert color1
+
+# }}}
+
+# WINDOW DECORARTION {{{
+
+#                       border  bg      text    indicator
+# client.focused          $focus	$focus	$focus	$focus
+# client.unfocused        $normal $normal $normal $normal
+# client.focused_inactive $normal $normal $normal $normal
+# client.urgent           $alert	$alert	$alert	$alert
+
+# }}}
+
+# FLOATING PROGRAMS {{{
+
+for_window [class="SimpleScreenRecorder"] floating enable, move container to workspace 9
+for_window [class="Pavucontrol"] floating enable, resize shrink left 100, resize shrink right 100, resize shrink down 50, resize shrink up 50
+for_window [instance="filechooser"] floating enable,  move position center 
+
+# }}}
+
+# AUTOSTART PROGRAMS {{{
+
+exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec dunst -sep_color "$normal" -frame_color "$focus" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
+# exec ./.fehbg & 
+# exec wal -R
+# exec_always ./.config/polybar/launch.sh i3-bar & 
+# exec ./.scripts/autostart &
+# exec conky -c ~/.config/conky/conky-day &
+exec mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
+exec nm-applet &
+exec blueman-applet &
+exec kdeconnect-indicator &
+# exec picom --experimental-backends &
+# exec urxvtd -q -o -f &
+
+# }}}

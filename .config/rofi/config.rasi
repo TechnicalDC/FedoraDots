@@ -1,0 +1,30 @@
+configuration {
+	icon-theme: "~/.icons/Fluent-purple-dark";
+	font: "FantasqueSansMono Nerd Font 10";
+	modi: "drun,run,window,filebrowser";
+	combi-modi: "drun, window";
+	show-icons: false;
+	terminal: "st";
+	run-shell-command: "{terminal} -e {cmd}";
+	disable-history: false;
+	/* drun-display-format: "{name}"; */
+	width: 50;
+	lines: 3;
+	fixed-num-lines: false;
+	location: 2;
+	yoffset: 100;
+	sidebar-mode: true;
+	fullscreen: false;
+	display-drun: " גּ ";
+	display-run: "  ";
+	display-window: " ﬓ ";
+	display-windowcd: " ﬓ ";
+	display-filebrowser: "  ";
+	filebrowser {
+		directory: "/home/dilip/";
+		sorting-method: "name";
+		directories-first: true;
+	}
+}
+
+@theme "/home/dilip/.config/rofi/themes/fancy_launcher.rasi"
