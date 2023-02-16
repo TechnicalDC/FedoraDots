@@ -2,12 +2,11 @@
 	<image class="banner" src="res/banner.png" style="width:400px;height:auto;">
 </div>
 
-# My Dotfiles
+# Programs that I use
 
 - Bspwm
 - Dunst
 - Fish
-- i3-gaps
 - Mpd
 - Mpv
 - Ncmpcpp
@@ -22,7 +21,7 @@
 - Sxiv (with key handler)
 - Tmux
 - Zathura
-- Zsh (replaced with fish shell, still config file is there)
+- Zsh
 
 ## Programs with separate repository for configs
 
@@ -33,7 +32,7 @@
 
 ```bash
 git clone http://github.com/TechnicalDC/dotfiles
-cd dotfiles
+cd FedoraDots
 cp .* ~
 cp -r .config/* ~/.config
 cp -r .fonts/* ~/.fonts
