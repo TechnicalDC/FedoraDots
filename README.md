@@ -37,7 +37,7 @@ cp -r .fonts/* ~/.fonts
 
 ## Screenshots:
 
-![screenshots](https://github.com/TechnicalDC/dotfiles/blob/main/res/fedora.gif)
+![screenshots](https://github.com/TechnicalDC/FedoraDots/blob/main/res/fedora.gif)
 
 ## TODO
 
