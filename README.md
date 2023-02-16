@@ -1,3 +1,7 @@
+<div class="class" align="center">
+	<image class="banner" src="res/banner.png" style="width:400px;height:auto;">
+</div>
+
 # My Dotfiles
 
 - Bspwm
