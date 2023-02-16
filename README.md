@@ -1,27 +1,22 @@
 # My Dotfiles
 
-- Arigram (tui client for telegram, config file coming soon)
 - Bspwm
 - Dunst
 - Fish
-- Herbstluftwm        
 - i3-gaps
 - Mpd
 - Mpv
 - Ncmpcpp
-- Neofetch (replaced with fm6000, still config file is there)
 - Newsboat
 - Picom
 - Polybar
-- Qtile
 - Qutebrowser
 - Ranger
 - Rofi
+- Starship
 - Sxhkd
 - Sxiv (with key handler)
 - Tmux
-- Urxvt (replaced with st terminal, still config file is there)
-- Xresources
 - Zathura
 - Zsh (replaced with fish shell, still config file is there)
 
@@ -38,12 +33,11 @@ cd dotfiles
 cp .* ~
 cp -r .config/* ~/.config
 cp -r .fonts/* ~/.fonts
-cp -r .Xresources.d ~
 ```
 
 ## Screenshots:
 
-![screenshots](https://github.com/TechnicalDC/dotfiles/blob/main/res/setup.gif)
+![screenshots](https://github.com/TechnicalDC/dotfiles/blob/main/res/fedora.gif)
 
 ## TODO
 
