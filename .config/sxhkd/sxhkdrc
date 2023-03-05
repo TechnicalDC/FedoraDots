@@ -62,8 +62,8 @@ super + shift + q
 	./.scripts/rofi-powermenu.sh
 
 # Rofi MPC
-super + {F1,F2}
-	{./.scripts/rofi-mpc, ./.scripts/wally}
+super + {F1,F2,F3}
+	{./.scripts/rofi-mpc, ./.scripts/wally, ./.scripts/rofi-recorder}
 
 # Change brightness
 super + Next

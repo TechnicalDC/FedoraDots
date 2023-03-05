@@ -12,6 +12,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 
 bspc monitor -d   "" "" "" "" "" "嗢" "" "" "" 
+# bspc monitor -d  " DEV " " WWW " " SYS " " DOC " " VBOX " " CHAT " " MUS " " VID " " GFX "  
 
 bspc config border_width         2
 bspc config window_gap           10
@@ -52,7 +53,7 @@ bspc rule -a *:imagepicker state=floating
 urxvtd -q -o -f &
 ./.fehbg &
 wal -R
-./.config/polybar/launch.sh bspwm-bar &
+./.config/polybar/launch.sh base &
 # conky -c ~/.config/conky/conky-day &
 mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
 nm-applet &

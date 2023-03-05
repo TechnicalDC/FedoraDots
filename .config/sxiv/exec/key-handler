@@ -7,7 +7,7 @@ do
 	"k")	
 		kdeconnect-cli --refresh
 		sleep 2
-		kdeconnect-cli -n 'Phone' --share "$fullpath" &&
+		kdeconnect-cli -n 'DC' --share "$fullpath" &&
 		notify-send -a 'Kde Connect' 'Files sent...' -i 'dialog-information' -t 5000 ||
 		notify-send -a 'Kde Connect' 'Files not sent...' -i 'dialog-error' -t 5000 ;;
 	"w")

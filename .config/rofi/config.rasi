@@ -1,9 +1,9 @@
 configuration {
-	icon-theme: "~/.icons/Fluent-purple-dark";
+	icon-theme: "~/.icons/Qogir-dark";
 	font: "FantasqueSansMono Nerd Font 10";
 	modi: "drun,run,window,filebrowser";
 	combi-modi: "drun, window";
-	show-icons: false;
+	show-icons: true;
 	terminal: "st";
 	run-shell-command: "{terminal} -e {cmd}";
 	disable-history: false;
