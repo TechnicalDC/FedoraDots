@@ -5,8 +5,21 @@
 <b>TechnicalDC's dofiles</b>
 
 </div>
-
+<br>
+<br>
+<br>
 <img src="https://raw.githubusercontent.com/TechnicalDC/FedoraDots/main/res/main.png" alt="img" align="right" width="400px">
+
+**Here are some details about my setup:**
+
+* **WM:** bspwm
+* **OS:** Fedora
+* **Shell:** zsh
+* **Terminal:** st
+* **Editor:** Neovim
+* **File Manager:** Thunar & Ranger
+* **Launcher:** rofi
+* **Browser:** Firefox
 
 ## Programs with separate repository for configs
 
