@@ -1,12 +1,8 @@
 <div class="class" align="center">
 	<image class="banner" src="res/banner.png" style="width:400px;height:auto;">
-
 <br> <br>
-<b>TechnicalDC's dofiles</b>
-
+<h1>TechnicalDC's dofiles</h1>
 </div>
-<br>
-<br>
 <br>
 <img src="https://raw.githubusercontent.com/TechnicalDC/FedoraDots/main/res/main.png" alt="img" align="right" width="400px">
 
@@ -21,7 +17,7 @@
 * **Launcher:** rofi
 * **Browser:** Firefox
 
-## Programs with separate repository for configs
+## Programs with separate repository
 
 - [neovim](https://github.com/TechnicalDC/NvConf)
 - [st](https://github.com/TechnicalDC/st)
