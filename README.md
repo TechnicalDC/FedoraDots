@@ -1,27 +1,12 @@
 <div class="class" align="center">
 	<image class="banner" src="res/banner.png" style="width:400px;height:auto;">
+
+<br> <br>
+<b>TechnicalDC's dofiles</b>
+
 </div>
 
-# Programs that I use
-
-- Bspwm
-- Dunst
-- Fish
-- Mpd
-- Mpv
-- Ncmpcpp
-- Newsboat
-- Picom
-- Polybar
-- Qutebrowser
-- Ranger
-- Rofi
-- Starship
-- Sxhkd
-- Sxiv (with key handler)
-- Tmux
-- Zathura
-- Zsh
+<img src="https://raw.githubusercontent.com/TechnicalDC/FedoraDots/main/res/main.png" alt="img" align="right" width="400px">
 
 ## Programs with separate repository for configs
 
@@ -40,7 +25,7 @@ cp -r .fonts/* ~/.fonts
 
 ## Screenshots:
 
-![screenshots](https://github.com/TechnicalDC/FedoraDots/blob/main/res/fedora.gif)
+![screenshots](https://github.com/TechnicalDC/FedoraDots/blob/main/res/main-1.png)
 
 ## TODO
 
