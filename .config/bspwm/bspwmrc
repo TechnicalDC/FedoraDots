@@ -50,21 +50,18 @@ bspc rule -a *:imagepicker state=floating
 # AUTOSTART {{{
 
 # nitrogen --restore &
-urxvtd -q -o -f &
-./.fehbg &
+# urxvtd -q -o -f &
 wal -R
+./.fehbg &
 ./.config/polybar/launch.sh base &
-# conky -c ~/.config/conky/conky-day &
-mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
+# conky -c .config/conky/conky-todo &
 nm-applet &
 blueman-applet &
 dunst -sep_color "$background" -frame_color "$color4" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
 kdeconnect-indicator &
 picom & 
 # telegram-desktop -startintray &
-# /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 /usr/libexec//polkit-gnome-authentication-agent-1 &
-
 # }}}
 
 # vim: fdm=marker

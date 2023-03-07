@@ -137,7 +137,7 @@ super + {_,shift + }bracket{left,right}
 
 # focus the last node/desktop
 super + {Tab,grave}
-	bspc {node,desktop} -f last
+	bspc {desktop,node} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
