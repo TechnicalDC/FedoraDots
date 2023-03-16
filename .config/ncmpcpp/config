@@ -1,4 +1,5 @@
  
+mpd_host = 127.0.0.1
 mpd_port = 6600
 mpd_crossfade_time = 2
  
@@ -28,7 +29,7 @@ visualizer_color =  7, 5, 4, 3
 visualizer_spectrum_smooth_look = no
 
 startup_screen = "playlist"
-startup_slave_screen = "visualizer"
+;startup_slave_screen = "visualizer"
 locked_screen_width_part = 50
 ask_for_locked_screen_width_part = no
 song_list_format = "$5· $5{%a}|{%D}$5 · $5%t $R $5%l"

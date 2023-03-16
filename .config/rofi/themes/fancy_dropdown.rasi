@@ -14,14 +14,20 @@
 
 #window {
 	transparency: "real";
-	location    : 2;
+	/* location    : center; */
 	/* anchor      : center; */
-	x-offset    : 0px;
-	y-offset    : 50px;
+	x-offset    : -20px;
+	y-offset    : 60px;
 	border      : 0;
-	width			: 35%;
+	/* height		: 67%; */
 	padding     : 0px;
 	border-color: @selected-urgent-background;
+	width			: 20%;
+}
+
+#mainbox {
+	border: 0;
+	padding: 0;
 }
 
 #message {
@@ -33,9 +39,10 @@
 
 #listview {
 	fixed-height: 0;
-	columns     : 2;
+	columns     : 1;
 	spacing     : 8px ;
 	scrollbar   : false;
+	lines			: 10;
 	padding     : 20px;
 }
 
@@ -68,22 +75,30 @@ element-text selected {
   background-color: var(selected-active-background);
 }
 
-#mode-switcher{
-	padding: 3px;
-   spacing:    0;
-	border-radius: 5;
-	border: 1;
-	border-color: @active-background;
-}
 #button {
-    spacing:    0;
-	border-radius: 5;
-    padding: 5px;
-    text-color: @normal-foreground;
+	spacing         : 0;
+	border			 : 3px;
+	border-radius   : 3px;
+	border-color    : @background;
+	text-align		 : center;
+	padding         : 7px 11px 7px 7px;
+	text-color      : @normal-foreground;
 }
 #button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+	border-color    : @background;
+	border-radius   : 3px;
+ background-color: @selected-normal-background;
+ text-color: @background;
+}
+
+#mode-switcher{
+	spacing         : 0;
+	border			 : 1px;
+	border-radius   : 3px;
+	border-color    : @foreground;
+	text-align		 : center;
+	padding         : 0px;
+	text-color      : @normal-foreground;
 }
 #entry {
 	spacing         : 0;
@@ -91,7 +106,7 @@ element-text selected {
 	border-radius   : 3px;
 	border-color    : @foreground;
 	padding         : 10px 13px;
-	placeholder     : "Search";
+	/* placeholder     : "Search"; */
 	text-color      : @normal-foreground;
 }
 #prompt {

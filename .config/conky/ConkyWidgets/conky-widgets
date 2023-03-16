@@ -1,0 +1,79 @@
+conky.config = {
+--==============================================================================
+--==============================================================================
+
+-- Size and Position settings --
+  alignment = 'top_right',
+  gap_x = 20,
+  gap_y = 40,
+  minimum_width = 360,
+  maximum_width = 400,
+  minimum_height = 650,
+  
+-- Text settings --
+  use_xft = true,
+  override_utf8_locale = true,
+  font = 'Abel:size=10',
+  
+-- Color Settings --
+  default_color = 'abb2bf',
+  default_outline_color = 'white',
+  default_shade_color = 'white',
+  color1 = 'e5c07b',
+  color2 = '61afef',
+  
+-- Window Settings --
+  background = false,
+  border_width = 1,
+  draw_borders = false,
+  draw_graph_borders = false,
+  draw_outline = false,
+  draw_shades = false,
+  own_window = true,
+  own_window_colour = '000000',
+  own_window_class = 'Conky',
+  own_window_argb_visual = false,
+  own_window_type = 'desktop',
+  own_window_transparent = true,
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  stippled_borders = 0,
+  
+-- Others --
+  cpu_avg_samples = 2,
+  net_avg_samples = 2,
+  double_buffer = true,
+  out_to_console = false,
+  out_to_stderr = false,
+  extra_newline = false,
+  update_interval = 1,
+  uppercase = false,
+  use_spacer = 'none',
+  show_graph_scale = false,
+  show_graph_range = false,
+}
+
+conky.text = [[
+${image ~/.config/conky/ConkyWidgets/image/background.png -p 0,0 -s 350x600}
+${image ~/.config/conky/ConkyWidgets/image/profile.png -p 50,50 -s 80x80}
+${offset 220}${alignr 50}${voffset 0}${font Abel:bold:size=50}${time %H}
+${offset 220}${alignr 50}${voffset -20}${font Abel:bold:size=50}${time %M}${font}
+${offset 220}${alignr 50}${voffset 10}${time %d %B, %Y}
+${offset 45}${voffset -50}${font Abel:bold:size=15}technicaldc${font}
+${offset 70}${voffset 0}${font Abel:size=10}@${execi 1 hostname}${font}
+${offset 40}${voffset 55}${font Abel:bold:size=15}System Info${font}
+${offset 40}${voffset 5}Uptime : ${uptime}
+${offset 40}${voffset -3}${font Abel:size=10}CPU : ${cpu cpu0}%
+${offset 40}${voffset -5}${color1}${cpugraph 20,120}${color}
+${offset 190}${voffset -50}${font Abel:size=10}RAM : ${memperc}%
+${offset 190}${voffset -5}${color1}${memgraph 20,120}${color}
+${offset 40}${voffset -7}${font Abel:size=10}Storage :
+${alignc}${voffset 5}${font Abel:size=8}${fs_used} / ${fs_size}
+${offset 40}${voffset -25}${font Abel:size=10}${color1}${fs_bar 20,270}${color}
+${offset 40}${voffset 40}${font Abel:bold:size=15}Keybings${font}
+${offset 40}${voffset 5}${font Abel:size=10}${color2}Super + Enter${color}${alignr 50}Launch terminal
+${offset 40}${voffset -2}${font Abel:size=10}${color2}Super + Shift + Enter${color}${alignr 50}Launch terminal with tmux
+${offset 40}${voffset -2}${font Abel:size=10}${color2}Shift + PrintScreen${color}${alignr 50}Take screenshot
+${offset 40}${voffset -2}${font Abel:size=10}${color2}Super + F1${color}${alignr 50}Launch rofi-mpc for MPD
+${offset 40}${voffset -2}${font Abel:size=10}${color2}Super + F2${color}${alignr 50}Launch wally for theming
+${offset 40}${voffset -2}${font Abel:size=10}${color2}Super + F3${color}${alignr 50}Launch rofi-recorder for recording
+]]

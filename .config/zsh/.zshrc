@@ -22,9 +22,9 @@ alias :wq='exit'
 alias :x='exit'
 
 # Simple aliases
-alias cp='cp -i'
-alias rm='rm -i'
-alias mv='mv -i'
+alias cp='cp -iv'
+alias rm='rm -iv'
+alias mv='mv -iv'
 alias exa="exa --color=always --icons"
 alias l="exa --color=always --icons"
 alias ls="ls --color=auto"
@@ -33,11 +33,11 @@ alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1'
 alias cat="bat"
 alias n="nvim"
-alias install="sudo dnf install"
-alias update="sudo dnf update"
-alias upgrade="sudo dnf upgrade"
-alias search="sudo dnf search"
-alias remove="sudo dnf remove"
+alias di="sudo dnf install"
+alias du="sudo dnf update"
+alias dU="sudo dnf upgrade"
+alias ds="sudo dnf search"
+alias dr="sudo dnf remove"
 alias dot="git --git-dir=$HOME/FedoraDots.git --work-tree=$HOME"
 alias tmux="tmux -a || tmux"
 alias ga="git add"
@@ -46,6 +46,10 @@ alias gS="git status"
 alias gc="git commit -m"
 alias gp="git push"
 alias gP="git pull"
+
+# Plugins
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/plugins/forgit/forgit.plugin.zsh
 
 # Vi Mode
 bindkey -v

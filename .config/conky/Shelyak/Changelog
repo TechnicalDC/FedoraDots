@@ -1,0 +1,17 @@
+Changelog
+------------------------------
+Shelyak - Conky Theme
+
+by Closebox73
+------------------------------
+
+v1.0
+date : 25 May 2022
+-	Initial release
+
+
+v1.3
+date : 04 Jan 2023
+-	Add override_utf8_locale line 
+-	Little extra line in script
+-	Add Changelog file

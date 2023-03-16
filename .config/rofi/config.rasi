@@ -12,7 +12,6 @@ configuration {
 	lines: 3;
 	fixed-num-lines: false;
 	location: 2;
-	yoffset: 100;
 	sidebar-mode: true;
 	fullscreen: false;
 	display-drun: " גּ ";
