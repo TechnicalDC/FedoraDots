@@ -1,7 +1,7 @@
 <div class="class" align="center">
 	<image class="banner" src="res/banner.png" style="width:400px;height:auto;">
 <br> <br>
-<h1>TechnicalDC's dofiles</h1>
+<strong>TechnicalDC's dofiles</strong>
 </div>
 <br>
 <img src="https://raw.githubusercontent.com/TechnicalDC/FedoraDots/main/res/main.png" alt="img" align="right" width="400px">
@@ -29,7 +29,6 @@ git clone http://github.com/TechnicalDC/dotfiles
 cd FedoraDots
 cp .* ~
 cp -r .config/* ~/.config
-cp -r .fonts/* ~/.fonts
 ```
 
 ## Screenshots:
