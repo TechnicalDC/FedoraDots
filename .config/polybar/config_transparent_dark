@@ -423,7 +423,7 @@ label-connected-foreground = ${colors.foreground}
 label-connected-padding = 2
 ;label-connected-margin = 1
 
-format-disconnected = <label-disconnected>
+format-disconnected = %{A1:rofi-wifi-menu:}<label-disconnected>%{A}
 ;format-disconnected-underline = #ff5555
 label-disconnected = 󰤭
 label-disconnected-padding = 2
@@ -434,8 +434,6 @@ ramp-signal-0 = 󰤟
 ramp-signal-1 = 󰤢
 ramp-signal-2 = 󰤥
 ramp-signal-3 = 󰤨
-
-click-left = wally &
 
 ; }}}
 

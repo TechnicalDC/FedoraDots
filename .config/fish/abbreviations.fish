@@ -14,15 +14,22 @@ abbr all 'exa -al --color=always -h --icons --tree --level=1'
 abbr cat "bat"
 abbr cp 'cp -i'
 abbr exa "exa --color=always --icons"
-abbr tmux 'tmux -u'
 abbr la 'exa -a --color=always --icons'
 abbr ls "exa --color=always --icons"
 abbr ll 'exa -l --color=always -h --icons --tree --level=1'
 abbr mv 'mv -i'
 abbr rm 'rm -i'
-abbr update "sudo dnf update"
-abbr autoremove "sudo dnf autoremove"
-abbr install "sudo dnf install"
-abbr upgrade "sudo dnf upgrade"
-abbr search "sudo dnf search"
 abbr insta "instaloader --login sunnyrodriguez79 -v --no-metadata-json --no-captions"
+
+alias di="sudo dnf install"
+alias du="sudo dnf update"
+alias dU="sudo dnf upgrade"
+alias ds="sudo dnf search"
+alias dr="sudo dnf remove"
+alias tmux="tmux -a || tmux"
+alias ga="git add"
+alias gs="git stage"
+alias gS="git status"
+alias gc="git commit -m"
+alias gp="git push"
+alias gP="git pull"

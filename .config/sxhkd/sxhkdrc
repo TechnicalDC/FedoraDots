@@ -11,7 +11,7 @@ super + Return
 
 # launch terminal with tmux
 super + shift + Return
-	st -e tmux -u
+	./.scripts/rofi-tmux
 
 # launch rofi
 super + {d,w,r}
@@ -35,7 +35,7 @@ super + alt + m
 
 # launch ranger
 super + alt + r
-	st -e 'ranger'
+	st -e 'lf'
 
 # launch telegram tui (arigram)
 super + alt + t
