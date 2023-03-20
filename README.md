@@ -13,7 +13,7 @@
 * **Shell:** zsh
 * **Terminal:** st
 * **Editor:** Neovim
-* **File Manager:** Thunar & Ranger
+* **File Manager:** lf
 * **Launcher:** rofi
 * **Browser:** Firefox
 

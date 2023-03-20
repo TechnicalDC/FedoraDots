@@ -1,8 +1,6 @@
 ## Configuration file for CAVA. Default values are commented out. Use either ';' or '#' for commenting.
 
-
 [general]
-
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
 mode = waves
 
@@ -25,7 +23,6 @@ bars = 0
 bar_width = 1
 bar_spacing = 1
 
-
 # Lower and higher cutoff frequencies for lowest and highest bars
 # the bandwidth of the visualizer.
 # Note: there is a minimum total bandwidth of 43Mhz x number of bars.
@@ -33,11 +30,9 @@ bar_spacing = 1
 ; lower_cutoff_freq = 50
 ; higher_cutoff_freq = 10000
 
-
 # Seconds with no input before cava goes to sleep mode. Cava will not perform FFT or drawing and
 # only check for input once per second. Cava will wake up once input is detected. 0 = disable.
 ; sleep_timer = 0
-
 
 [input]
 
@@ -70,7 +65,6 @@ bar_spacing = 1
 ; method = portaudio
 ; source = auto
 
-
 [output]
 
 # Output method. Can be 'ncurses', 'noncurses' or 'raw'.
@@ -80,7 +74,7 @@ bar_spacing = 1
 # 'raw' is an 8 or 16 bit (configurable via the 'bit_format' option) data
 # stream of the bar heights that can be used to send to other applications.
 # 'raw' defaults to 200 bars, which can be adjusted in the 'bars' option above.
-method = ncurses
+method = noncurses
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -106,8 +100,6 @@ method = ncurses
 bar_delimiter = 59
 frame_delimiter = 10
 
-
-
 [color]
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
@@ -116,23 +108,21 @@ frame_delimiter = 10
 # if supported, ncurses mode will be forced on if user defined colors are used.
 # default is to keep current terminal color
 background = default
-foreground = magenta
+foreground = yellow
 
 # Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
 # background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-gradient = 1
-gradient_count = 2
-gradient_color_1 = red
-gradient_color_2 = magenta
+; gradient = 1
+; gradient_count = 2
+; gradient_color_1 = cyan
+; gradient_color_2 = magenta
 ; gradient_color_3 = '#a6cc33'
 ; gradient_color_4 = '#cccc33'
 ; gradient_color_5 = '#cca633'
 ; gradient_color_6 = '#cc8033'
 ; gradient_color_7 = '#cc5933'
 ; gradient_color_8 = '#cc3333'
-
-
 
 [smoothing]
 
@@ -148,10 +138,8 @@ gradient_color_2 = magenta
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
 ; gravity = 100
 
-
 # In bar height, bars that would have been lower that this will not be drawn.
 ; ignore = 0
-
 
 [eq]
 

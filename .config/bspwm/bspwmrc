@@ -10,7 +10,6 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-
 bspc monitor -d I II III IV V VI VII VIII IX
 # bspc monitor -d   "" "" "" "" "" "嗢" "" "" "" 
 # bspc monitor -d  " DEV " " WWW " " SYS " " DOC " " VBOX " " CHAT " " MUS " " VID " " GFX "  
@@ -32,7 +31,6 @@ bspc config border_radius			15
 # }}}
 
 # RULES {{{
-
 bspc rule -a Zathura state=tiled
 bspc rule -a mpv state=fullscreen
 bspc rule -a Pavucontrol state=pseudo_tiled
@@ -44,13 +42,9 @@ bspc rule -a *:imagepicker state=floating
 # workspaces
 # bspc rule -a qutebrowser desktop="" follow=on
 # bspc rule -a brave-browser desktop="" follow=on
-
 # }}}
 
 # AUTOSTART {{{
-
-# nitrogen --restore &
-# urxvtd -q -o -f &
 wal -R
 ./.fehbg &
 ./.config/polybar/launch.sh base dark &

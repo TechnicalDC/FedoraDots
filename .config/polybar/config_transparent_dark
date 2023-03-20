@@ -49,9 +49,9 @@ font-0 = Liberation Sans:style=Bold:size=10;0
 font-1 = FantasqueSansMono Nerd Font:style=Regular:size=10;1
 font-2 = FantasqueSansMono Nerd Font:style=Bold:size=10;2
 
-modules-left = date
+modules-left = date layout
 modules-center = bspwm
-modules-right = recorder-status wlan
+modules-right = recorder-status pulseaudio wlan
 
 ;tray-position = right
 ;tray-padding = 4
@@ -184,6 +184,19 @@ label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+
+; }}}
+
+; BSP-LAYOUT {{{
+
+[module/layout]
+type = custom/script
+exec = bash /home/dilip/.config/polybar/scripts/bsp-layout &
+tail = true
+interval = 0
+label = %output:0:3:...%
+format-padding = 2
+format-background = ${colors.background}
 
 ; }}}
 
@@ -480,23 +493,23 @@ label-volume-foreground = ${colors.foreground}
 label-volume-padding = 3
 
 ramp-volume-0 = 
-ramp-volume-0-foreground = ${colors.purple}
+ramp-volume-0-foreground = ${colors.foreground}
 ramp-volume-1 = 
-ramp-volume-1-foreground = ${colors.purple}
+ramp-volume-1-foreground = ${colors.foreground}
 ramp-volume-2 = 
-ramp-volume-2-foreground = ${colors.purple}
+ramp-volume-2-foreground = ${colors.foreground}
 ramp-volume-3 = 
-ramp-volume-3-foreground = ${colors.purple}
+ramp-volume-3-foreground = ${colors.foreground}
 ramp-volume-4 = 
-ramp-volume-4-foreground = ${colors.purple}
+ramp-volume-4-foreground = ${colors.foreground}
 ramp-volume-5 = 
-ramp-volume-5-foreground = ${colors.purple}
+ramp-volume-5-foreground = ${colors.foreground}
 ramp-volume-6 = 
-ramp-volume-6-foreground = ${colors.purple}
+ramp-volume-6-foreground = ${colors.foreground}
 ramp-volume-7 = 
-ramp-volume-7-foreground = ${colors.purple}
+ramp-volume-7-foreground = ${colors.foreground}
 ramp-volume-8 = 
-ramp-volume-8-foreground = ${colors.purple}
+ramp-volume-8-foreground = ${colors.foreground}
 ramp-volume-9 = 
 ramp-volume-9-foreground = ${colors.red}
 

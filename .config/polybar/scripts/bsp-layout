@@ -1,0 +1,7 @@
+#!/bin/bash
+if bspc query -D -d focused.user_monocle --names > /dev/null ; then
+	echo ""
+else
+	echo "󰕰"
+fi
+

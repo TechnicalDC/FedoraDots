@@ -7,36 +7,39 @@
 # =================================================================
 # BASIC SETTINGS
 # =================================================================
+set shell zsh
 set previewer ~/.config/lf/preview
 set preview true
-# set hidden false
-# set drawbox false
 set icons true
 set ignorecase true
+set smartcase true
 
 # =================================================================
 # CUSTOM FUNCTIONS
 # =================================================================
 cmd open ${{
-    case $(file --mime-type "$f" -bL) in
-        text/*|application/json) $EDITOR "$f";;
-        *) xdg-open "$f" ;;
-    esac
+	case $(file --mime-type "$f" -bL) in
+		text/*|application/json) $EDITOR "$f";;
+			  *) xdg-open "$f" & ;;
+	esac
 }}
 
 cmd mkdir ${{
-  printf "Directory Name: "
-  read ans
-  mkdir $ans
+	clear
+	printf "Directory Name: "
+	read ans
+	mkdir $ans
 }}
 
 cmd mkfile ${{
-  printf "File Name: "
-  read ans
-  $EDITOR $ans
+	clear
+	printf "File Name: "
+	read ans
+	$EDITOR $ans
 }}
 
 cmd chmod ${{
+	clear
   printf "Mode Bits: "
   read ans
 
@@ -49,12 +52,18 @@ cmd chmod ${{
 }}
 
 cmd sudomkfile ${{
+	clear
   printf "File Name: "
   read ans
   sudo $EDITOR $ans
 }}
 
-cmd setwallpaper %cp "$f" ~/.config/wall.png && xwallpaper --zoom "$f"
+cmd setwallpaper ${{
+	feh --bg-fill "$f"
+	cp "$f" ~/.cache/wal/wallpaper.jpg
+	mantablockscreen -i "$f" &
+	genstarttree &
+}} 
 
 cmd fzf_jump ${{
   res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
@@ -77,17 +86,6 @@ cmd broot_jump ${{
   fi
   lf -remote "send $id $cmd \"$res\""
 }}
-
-cmd open_config  ${{
-  $EDITOR $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
-}}
-
-cmd dragon %dragon-drag-and-drop -a -x $fx
-cmd dragon-stay %dragon-drag-and-drop -a $fx
-cmd dragon-individual %dragon-drag-and-drop $fx
-cmd cpdragon %cpdragon
-cmd mvdragon %mvdragon
-cmd dlfile %dlfile
 
 # Archive bindings
 cmd unarchive ${{
@@ -133,6 +131,38 @@ cmd restore_trash ${{
 
 cmd stripspace %stripspace "$f"
 
+cmd newfold ${{
+    set -f
+    read newd
+    printf "Directory name: "
+    mkdir -- "$newd"
+    mv -- $fx "$newd"
+}}
+
+cmd bulk-rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" >"$old"
+    printf '%s\n' "$fs" >"$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
+}}
+
 # =================================================================
 # INTEGRATED
 # =================================================================
@@ -149,6 +179,11 @@ cmd zi ${{
 # =================================================================
 # BINDINGS
 # =================================================================
+map m
+map t
+map d
+map c
+map c
 
 # Archive Mappings
 map az zip
@@ -171,12 +206,11 @@ map yy copy
 map <enter> open
 map mf mkfile
 map mr sudomkfile
-map md mkdir
+map mdd mkdir
 map ms $mkscript
 map ch chmod
-# map bg setwallpaper
-# map o open_config
-# map br $vimv $fx
+map mdm newfold
+map sw setwallpaper
 map cw rename
 map H top
 map L bottom
@@ -184,10 +218,6 @@ map R reload
 map C clear
 map u unselect
 
-# Movement
-# map gtr cd ~/.local/share/Trash/files
-
-# map zz z
 map gv. cd ~/Videos
 map gy. cd ~/Youtube
 map gp. cd ~/Pictures
@@ -204,4 +234,5 @@ map gU. cd /usr
 map gUs cd /usr/share
 
 map gh cd ~
-map gr cd /
+map gr cd ~/Recordings/
+map gR cd /
