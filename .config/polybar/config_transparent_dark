@@ -51,7 +51,7 @@ font-2 = FantasqueSansMono Nerd Font:style=Bold:size=10;2
 
 modules-left = date layout
 modules-center = bspwm
-modules-right = recorder-status pulseaudio wlan
+modules-right = recorder-status pulseaudio bluetooth wlan
 
 ;tray-position = right
 ;tray-padding = 4
@@ -448,6 +448,17 @@ ramp-signal-1 = 󰤢
 ramp-signal-2 = 󰤥
 ramp-signal-3 = 󰤨
 
+; }}}
+
+; BLUETOOTH {{{
+[module/bluetooth]
+type = custom/script
+exec = rofi-bluetooth --status
+interval = 1
+format-padding = 2
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+click-left = rofi-bluetooth &
 ; }}}
 
 ; DATE {{{

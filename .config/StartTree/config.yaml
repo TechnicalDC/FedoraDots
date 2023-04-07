@@ -5,6 +5,7 @@ tree_1:
     github: "https://github.com/TechnicalDC"
     gmail: "https://mail.google.com/"
     localhost: "http://127.0.0.1:8000"
+    technicaldc: "https://technicaldc.github.io"
   reddit:
     frontpage: 
       - "https://www.reddit.com/"

@@ -218,6 +218,9 @@ map R reload
 map C clear
 map u unselect
 
+map xk kdeconnect-cli -n 'DC' --share $fx
+
+# Navigation
 map gv. cd ~/Videos
 map gy. cd ~/Youtube
 map gp. cd ~/Pictures
@@ -235,4 +238,5 @@ map gUs cd /usr/share
 
 map gh cd ~
 map gr cd ~/Recordings/
+map gk cd ~/Downloads/kdeconnect/DC/
 map gR cd /

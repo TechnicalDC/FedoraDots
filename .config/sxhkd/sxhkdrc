@@ -13,6 +13,10 @@ super + Return
 super + shift + Return
 	./.scripts/rofi-tmux
 
+# launch scratchpad
+super + x
+	bsp-scratchpad
+
 # launch rofi
 super + {d,w,r}
 	rofi -show {drun,window,run}
