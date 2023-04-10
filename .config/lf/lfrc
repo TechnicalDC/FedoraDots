@@ -26,16 +26,12 @@ cmd open ${{
 
 cmd mkdir ${{
 	clear
-	printf "Directory Name: "
-	read ans
-	mkdir $ans
+	mkdir $(gum input --prompt="Directory Name: ")
 }}
 
 cmd mkfile ${{
 	clear
-	printf "File Name: "
-	read ans
-	$EDITOR $ans
+	$EDITOR $(gum input --prompt="File Name: ")
 }}
 
 cmd chmod ${{
@@ -53,9 +49,7 @@ cmd chmod ${{
 
 cmd sudomkfile ${{
 	clear
-  printf "File Name: "
-  read ans
-  sudo $EDITOR $ans
+	sudo $EDITOR $(gum input --prompt="File Name: ")
 }}
 
 cmd setwallpaper ${{
@@ -131,19 +125,10 @@ cmd restore_trash ${{
 
 cmd stripspace %stripspace "$f"
 
-cmd newfold ${{
-    set -f
-    read newd
-    printf "Directory name: "
-    mkdir -- "$newd"
-    mv -- $fx "$newd"
-}}
-
 cmd sendfile ${{
 	clear
 	kdeconnect-cli --refresh
-	printf "Select:\n"
-	DEVICE=$(kdeconnect-cli -a --name-only | gum choose)
+	DEVICE=$(kdeconnect-cli -a --name-only | gum filter --placeholder="Select device")
 	kdeconnect-cli -n $DEVICE --share $fx
 }}
 
@@ -217,7 +202,6 @@ map mr sudomkfile
 map mdd mkdir
 map ms $mkscript
 map ch chmod
-map mdm newfold
 map sw setwallpaper
 map cw rename
 map H top

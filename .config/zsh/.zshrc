@@ -49,3 +49,5 @@ eval "$(zoxide init zsh)"
 
 # starship prompt
 eval "$(starship init zsh)"
+
+gum style --width 70 --padding '1 3' --border double --border-foreground 212 "$(fortune)"
