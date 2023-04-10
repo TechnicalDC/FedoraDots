@@ -139,6 +139,14 @@ cmd newfold ${{
     mv -- $fx "$newd"
 }}
 
+cmd sendfile ${{
+	clear
+	kdeconnect-cli --refresh
+	printf "Select:\n"
+	DEVICE=$(kdeconnect-cli -a --name-only | gum choose)
+	kdeconnect-cli -n $DEVICE --share $fx
+}}
+
 cmd bulk-rename ${{
     old="$(mktemp)"
     new="$(mktemp)"
@@ -218,7 +226,7 @@ map R reload
 map C clear
 map u unselect
 
-map xk kdeconnect-cli -n 'DC' --share $fx
+map xk sendfile
 
 # Navigation
 map gv. cd ~/Videos
