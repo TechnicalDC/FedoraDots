@@ -18,3 +18,4 @@ x-scheme-handler/https=brave.desktop;
 x-scheme-handler/ftp=brave.desktop;
 application/json=editor.desktop
 application/pdf=org.pwmt.zathura.desktop;
+x-scheme-handler/mailspring=Mailspring.desktop

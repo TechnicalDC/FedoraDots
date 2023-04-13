@@ -36,8 +36,7 @@ cmd mkfile ${{
 
 cmd chmod ${{
 	clear
-  printf "Mode Bits: "
-  read ans
+  ans=$(gum input --prompt="Mode Bits: ")
 
   for file in "$fx"
   do
@@ -213,10 +212,11 @@ map u unselect
 map xk sendfile
 
 # Navigation
-map gv. cd ~/Videos
-map gy. cd ~/Youtube
+map gv cd ~/Videos
+map gy cd ~/Youtube
 map gp. cd ~/Pictures
 map gps cd ~/Pictures/screenshots
+map gpp cd ~/project/
 map gw cd ~/Wallpapers
 
 map gD cd ~/Documents
@@ -224,11 +224,13 @@ map gd cd ~/Downloads
 
 map gc cd ~/.config
 map gl cd ~/.local
-map gE cd /etc
-map gU. cd /usr
-map gUs cd /usr/share
+map ge cd /etc
+map gu. cd /usr
+map gus cd /usr/share
 
 map gh cd ~
 map gr cd ~/Recordings/
 map gk cd ~/Downloads/kdeconnect/DC/
 map gR cd /
+map gm cd /mnt/NewVolumn/Dilip/
+map gn cd ~/.config/nvim/
