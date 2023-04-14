@@ -25,7 +25,7 @@
 ## Installation:
 
 ```bash
-git clone http://github.com/TechnicalDC/dotfiles
+git clone http://github.com/TechnicalDC/FedoraDots
 cd FedoraDots
 cp .* ~
 cp -r .config/* ~/.config
