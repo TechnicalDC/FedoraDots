@@ -25,7 +25,7 @@ cyan = ${xrdb:color6}
 ;monitor = ${env:MONITOR:HDMI-1}
 height = 25
 offset-y = 10
-radius = 0
+radius = 10
 fixed-center = true
 enable-ipc = true
 
@@ -36,7 +36,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 2
-border-color = ${colors.purple}
+border-color = ${colors.background}
 
 padding-left = 0
 padding-right = 0
@@ -60,7 +60,7 @@ wm-restack = bspwm
 ; BSPWM-BAR {{{
 [bar/bspwm-bar-left]
 inherit = bar/base
-width = 14.3%
+width = 15%
 offset-x = 10
 modules-left = bspwm
 
