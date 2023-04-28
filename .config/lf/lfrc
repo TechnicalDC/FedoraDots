@@ -20,6 +20,7 @@ set smartcase true
 cmd open ${{
 	case $(file --mime-type "$f" -bL) in
 		text/*|application/json) $EDITOR "$f";;
+		image/*) sxiv "$f" & ;;
 			  *) xdg-open "$f" & ;;
 	esac
 }}
@@ -52,10 +53,7 @@ cmd sudomkfile ${{
 }}
 
 cmd setwallpaper ${{
-	feh --bg-fill "$f"
-	cp "$f" ~/.cache/wal/wallpaper.jpg
-	mantablockscreen -i "$f" &
-	genstarttree &
+	wally -w "$f" &
 }} 
 
 cmd fzf_jump ${{
