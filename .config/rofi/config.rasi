@@ -27,4 +27,4 @@ configuration {
 	}
 }
 
-@theme "/home/dilip/.config/rofi/themes/fancy_launcher.rasi"
+@theme "/home/dilip/.config/rofi/themes/fancy/fancy_launcher.rasi"
