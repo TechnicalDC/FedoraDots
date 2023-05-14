@@ -20,7 +20,7 @@ set smartcase true
 cmd open ${{
 	case $(file --mime-type "$f" -bL) in
 		text/*|application/json) $EDITOR "$f";;
-		image/*) sxiv "$f" & ;;
+		image/*) sxiv * & ;;
 			  *) xdg-open "$f" & ;;
 	esac
 }}

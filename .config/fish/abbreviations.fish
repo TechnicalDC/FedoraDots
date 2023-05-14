@@ -1,4 +1,4 @@
-abbr config 'git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+abbr dot 'git --git-dir=$HOME/FedoraDots.git/ --work-tree=$HOME'
 abbr hypr 'git --git-dir=$HOME/HyperDesk --work-tree=$HOME'
 
 abbr :q 'exit'
@@ -26,7 +26,6 @@ alias du="sudo dnf update"
 alias dU="sudo dnf upgrade"
 alias ds="sudo dnf search"
 alias dr="sudo dnf remove"
-alias tmux="tmux -a || tmux"
 alias ga="git add"
 alias gs="git stage"
 alias gS="git status"
