@@ -15,6 +15,7 @@ tree_2:
   youtube:
     homepage: "https://www.youtube.com/"
     distrotube: "https://www.youtube.com/c/DistroTube"
+    bugswriter: "https://www.youtube.com/@bugswriter_"
     lukesmith:
       - "https://www.youtube.com/c/LukeSmithxyz"
       - "luke smith"
@@ -28,6 +29,8 @@ tree_2:
       - "https://studio.youtube.com/channel/UCh98peCVtmezFdSR18kipcg"
       - "youtube studio"
 tree_3:
+  docs:
+    qtile: "http://docs.qtile.org/en/stable/"
   other:
     savefrom: "https://en.savefrom.net/151/"
     nerdfont: "https://www.nerdfonts.com/cheat-sheet"

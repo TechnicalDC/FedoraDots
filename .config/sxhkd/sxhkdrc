@@ -14,8 +14,8 @@ super + shift + Return
 	./.scripts/rofi-tmux
 
 # launch scratchpad
-super + x
-	bsp-scratchpad
+# super + x
+# 	bsp-scratchpad
 
 # launch rofi
 super + {d,w,r}

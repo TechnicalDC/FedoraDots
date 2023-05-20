@@ -20,6 +20,7 @@ abbr ll 'exa -l --color=always -h --icons --tree --level=1'
 abbr mv 'mv -i'
 abbr rm 'rm -i'
 abbr insta "instaloader --login sunnyrodriguez79 -v --no-metadata-json --no-captions"
+abbr clear "clear"
 
 alias di="sudo dnf install"
 alias du="sudo dnf update"

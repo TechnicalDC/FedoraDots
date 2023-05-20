@@ -10,10 +10,10 @@ set --export PATH  $PATH $HOME/.local/bin/
 set --export FZF_DEFAULT_OPTS "--layout=reverse
 	--preview='bat {} --color always --style=plain'
 	--border double
-	--height=50%
+	--height=100%
 	--prompt=' '
 	--pointer='>>'"
-set --export ROFI_MINI $HOME/.config/rofi/themes/fancy/fancy_min.rasi
+set --export ROFI_MINI $HOME/.config/rofi/themes/minimal/popup.rasi
 set --export ROFI_LIST $HOME/.config/rofi/themes/fancy/fancy.rasi
 #}}}
 
