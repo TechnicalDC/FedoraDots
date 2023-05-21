@@ -40,10 +40,10 @@
 
 #listview {
 	fixed-height: 0;
-	columns     : 1;
+	columns     : 5;
 	spacing     : 8px ;
 	scrollbar   : false;
-	lines			: 10;
+	lines			: 5;
 }
 
 element, element-text, element-icon {
@@ -52,8 +52,8 @@ element, element-text, element-icon {
 
 element {
 	padding       : 6px 8px;
-	spacing       : 15px;
-	orientation   : horizontal;
+	spacing       : 10px;
+	orientation   : vertical;
 	border-radius : 8px;
 }
 
@@ -61,17 +61,24 @@ element selected {
   background-color: var(selected-active-background);
 }
 
+element-icon {
+	size: 3em;
+	horizontal-align: 0.5;
+}
+
 element-icon selected {
   background-color: var(selected-active-background);
 }
 
 element-text {
-  color:			var(foreground);
+	color:			var(foreground);
+	horizontal-align: 0.5;
 }
 
 element-text selected {
   /* color:			var(background); */
   color:			var(foreground);
+  text-align : center;
   background-color: var(selected-active-background);
 }
 

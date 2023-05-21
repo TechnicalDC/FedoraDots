@@ -8,7 +8,7 @@ configuration {
 	terminal: "st";
 	run-shell-command: "{terminal} -e {cmd}";
 	disable-history: false;
-	/* drun-display-format: "{name}"; */
+	drun-display-format: "{name}"; 
 	width: 50;
 	lines: 3;
 	fixed-num-lines: false;
