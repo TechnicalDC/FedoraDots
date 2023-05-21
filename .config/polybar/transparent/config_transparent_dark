@@ -7,7 +7,7 @@
 ; COLORS {{{
 [colors]
 background = #00000000
-foreground = $FFFFFFFF
+foreground = ${xrdb:background}
 alert = ${xrdb:color1}
 red = ${xrdb:color1}
 green = ${xrdb:color2}
