@@ -1,0 +1,100 @@
+/************************************************
+ * Fancy theme for rofi
+ * User: technicaldc
+ * Copyright: 2021 technicaldc
+ ***********************************************/
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+* {
+    active-background			: @background;
+    selected-active-background: @selected-normal-background;
+}
+
+#window {
+	transparency: "real";
+	/* location    : center; */
+	/* anchor      : center; */
+	x-offset    : 0px;
+	y-offset    : 50px;
+	border      : 2;
+	/* height		: 67%; */
+	padding     : 0px;
+	border-radius: 15px;
+	border-color: @selected-urgent-background;
+	width			: 40%;
+}
+
+#mainbox {
+	border: 0;
+	padding     : 8px;
+	children: [ inputbar, message, listview ];
+}
+
+#message {
+	border      : 0px 0px 0px 2px;
+	border-radius : 8px;
+	border-color: @selected-normal-background;
+	padding       : 6px 8px;
+}
+
+#listview {
+	fixed-height: 0;
+	columns     : 1;
+	spacing     : 8px ;
+	scrollbar   : false;
+	lines			: 10;
+}
+
+element, element-text, element-icon {
+	cursor: pointer;
+}
+
+element {
+	padding       : 6px 8px;
+	spacing       : 15px;
+	orientation   : horizontal;
+	border-radius : 8px;
+}
+
+element selected {
+  background-color: var(selected-active-background);
+}
+
+element-icon selected {
+  background-color: var(selected-active-background);
+}
+
+element-text {
+  color:			var(foreground);
+}
+
+element-text selected {
+  /* color:			var(background); */
+  color:			var(foreground);
+  background-color: var(selected-active-background);
+}
+#entry {
+	spacing         : 0;
+	border			 : 1px;
+	border-radius   : 3px;
+	border-color    : @background;
+	padding         : 10px 0px;
+	placeholder     : "Search";
+	text-color      : @normal-foreground;
+}
+#prompt {
+	spacing         : 0;
+	border			 : 1px;
+	border-radius   : 3px;
+	border-color    : @background;
+	text-align		 : center;
+	padding         : 10px 10px 0px 10px;
+	text-color:  @selected-urgent-background;
+}
+#inputbar {
+	children        : [ prompt,entry ];
+	background-color: @background;
+	border-color    : @selected-urgent-background;
+	text-color      : @normal-foreground;
+}

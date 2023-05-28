@@ -1,0 +1,126 @@
+/************************************************
+ * Fancy theme for rofi
+ * User: technicaldc
+ * Copyright: 2021 technicaldc
+ ***********************************************/
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+* {
+    active-background			: @background;
+    selected-active-background: @selected-normal-background;
+}
+
+#window {
+	transparency: "real";
+	location    : center; 
+	/* anchor      : center; */
+	x-offset    : 0px;
+	y-offset    : 0px;
+	border      : 2;
+	height		: 525px;
+	padding     : 10px 20px;
+	border-radius: 0px;
+	width			: 800px;
+}
+
+#mainbox {
+	border: 0;
+	padding     : 20px;
+	spacing		: 8px;
+	children: [ inputbar, message, listview ];
+}
+
+#message {
+	padding       : 6px 8px;
+}
+
+#listview {
+	fixed-height: 0;
+	columns     : 6;
+	spacing     : 8px ;
+	scrollbar   : false;
+	lines			: 5;
+}
+
+element, element-text, element-icon {
+	cursor: pointer;
+}
+
+element {
+	padding       : 6px 8px;
+	spacing       : 10px;
+	orientation   : vertical;
+	border-radius : 0px;
+}
+
+element selected {
+  background-color: var(selected-active-background);
+}
+
+element-icon {
+	size: 3em;
+	horizontal-align: 0.5;
+}
+
+element-icon selected {
+  background-color: var(selected-active-background);
+}
+
+element-text {
+	color:			var(foreground);
+	horizontal-align: 0.5;
+}
+
+element-text selected {
+  /* color:			var(background); */
+  color:			var(foreground);
+  text-align : center;
+  background-color: var(selected-active-background);
+}
+
+#button {
+	spacing         : 0;
+	border			 : 1px;
+	border-color    : @background;
+	text-align		 : center;
+	padding         : 7px 11px 7px 7px;
+	text-color      : @normal-foreground;
+}
+#button.selected {
+	border-color    : @selected-active-background;
+	background-color: @selected-active-background;
+	text-color:		@foreground;
+}
+
+#mode-switcher{
+	border			 : 1px;
+	border-color    : @selected-active-background;
+	text-align		 : center;
+	padding         : 0px;
+	text-color      : @normal-foreground;
+}
+#entry {
+	spacing         : 0;
+	border			 : 1px;
+	border-color    : @background;
+	placeholder     : "Search program";
+	text-color      : @normal-foreground;
+}
+#prompt {
+	spacing         : 0;
+	border			 : 1px;
+	border-color    : @background;
+	text-align		 : center;
+	text-color:  @selected-urgent-background;
+}
+#inputbar {
+	children        : [ prompt,entry ];
+	padding         : 5px;
+	margin			 : 2% 15%;
+	spacing			 : 5px;
+	background-color: @background;
+	border-color    : @selected-active-background;
+	border			 : 1px;
+	text-color      : @normal-foreground;
+}

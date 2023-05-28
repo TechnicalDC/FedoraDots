@@ -1,6 +1,6 @@
 # Config for rofi-wifi-menu
 
-THEME=$HOME/.config/rofi/themes/fancy_dropdown.rasi
+THEME=$HOME/.config/rofi/themes/minimal/popup.rasi
 # position values:
 # 1 2 3
 # 8 0 4

@@ -13,8 +13,8 @@ set --export FZF_DEFAULT_OPTS "--layout=reverse
 	--height=100%
 	--prompt=' '
 	--pointer='>>'"
-set --export ROFI_MINI $HOME/.config/rofi/themes/minimal/popup.rasi
-set --export ROFI_LIST $HOME/.config/rofi/themes/minimal/list.rasi
+set --export ROFI_MINI $HOME/.config/rofi/themes/flat/popup.rasi
+set --export ROFI_LIST $HOME/.config/rofi/themes/flat/list.rasi
 #}}}
 
 set fish_greeting

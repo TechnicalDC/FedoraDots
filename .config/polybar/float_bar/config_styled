@@ -36,7 +36,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 2
-border-color = ${colors.purple}
+border-color = ${colors.background}
 
 padding-left = 0
 padding-right = 0
@@ -82,7 +82,7 @@ offset-y = 1%
 padding-left = 2
 padding-right = 2
 
-modules-left = bspwm 
+modules-left = bspwm
 wm-restack = bspwm
 
 ; }}}
