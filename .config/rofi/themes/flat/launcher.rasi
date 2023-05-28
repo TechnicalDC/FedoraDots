@@ -18,7 +18,7 @@
 	x-offset    : 0px;
 	y-offset    : 0px;
 	border      : 2;
-	height		: 525px;
+	height		: 532px;
 	padding     : 10px 20px;
 	border-radius: 0px;
 	width			: 800px;
